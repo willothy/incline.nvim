@@ -58,6 +58,10 @@ require('incline').setup {
   },
   render = "basic",
   window = {
+    overlap = {
+      winbar = false,
+      tabline = false,
+    },
     margin = {
       horizontal = 1,
       vertical = 1
