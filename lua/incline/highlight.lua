@@ -63,9 +63,19 @@ end
 M.setup = function()
   M.clear()
   M.namespace = a.nvim_create_namespace 'incline'
+
   for hl_group, hl in pairs(config.highlight.groups) do
     M.register(hl, hl_group)
   end
+
+  require('incline.util').autocmd('ColorScheme', {
+    callback = function()
+      M.clear()
+      for hl_group, hl in pairs(config.highlight.groups) do
+        M.register(hl, hl_group)
+      end
+    end,
+  })
 end
 
 return M
